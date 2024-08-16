@@ -53,10 +53,11 @@ export const ResourceList = ({ resources }: Props) => {
 
   useEffect(() => {
     if (activeFilters.length > 0) {
-      setFilteredResources(
+      return setFilteredResources(
         resources.filter(({ type }) => activeFilters.includes(type))
       )
     }
+    setFilteredResources(resources)
   }, [activeFilters])
 
   const handleFilterSelect = (event: FormEvent<HTMLButtonElement>) => {
